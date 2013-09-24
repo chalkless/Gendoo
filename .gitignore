@@ -1,10 +1,9 @@
 # Data files
+/data/*
 *.tab
 
 # Emacs/vi temporary files
-/*~
-/*/*~
-/*/*/*~
-/*.swp
-/*/*.swp
-/*/*/*.swp
+*~
+*.swp
+.#*
+#*
