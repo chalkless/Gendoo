@@ -1,6 +1,5 @@
-# Data files
-/data/*
-*.tab
+# Output files
+out/*
 
 # Emacs/vi temporary files
 *~
