@@ -30,7 +30,7 @@ while (defined ($line_subst = <SUBST>)) {
 
         foreach $each_ele (@ele) {
             $each_ele =~ s/^\s*(.*)\s*$/$1/;
-	    while (/[A-Z]?_{0,1}\d+/) {
+	    while ($each_ele =~ /([A-Z]+_{0,1}\d+)/) {
 		$acc_tmp = $1;
 
 		if ($acc_tmp =~ /([A-Z]{2}_\d+)/) {
