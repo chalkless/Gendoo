@@ -42,7 +42,7 @@ open (A, ">$file_out_prefix.A.tab") or die $!;
 open (B, ">$file_out_prefix.B.tab") or die $!;
 open (C, ">$file_out_prefix.C.tab") or die $!;
 open (D, ">$file_out_prefix.D.tab") or die $!;
-#open (F, ">$file_out_prefix.F.tab") or die $!;
+open (F, ">$file_out_prefix.F.tab") or die $!;
 open (G, ">$file_out_prefix.G.tab") or die $!;
 open (S, ">$file_out_prefix.S.tab") or die $!;
 
@@ -62,10 +62,9 @@ while (defined ($line_target = <TARGET>)) {
         @cats_out = split(/\|/, $category_out_tmp);
 
         foreach $each_cat (@cats_out) {
-	    if (($each_cat =~ /([ABCDG])\d{2}/) or ($each_cat =~ /(F)01/)) {
-#		$each_cat_out =~ substr($each_cat, 0, 1);
+	    if ($each_cat =~ /([ABCDFG])\d{2}/) {
 		$each_cat_out = $1;
-		$each_cat_out = "C" if $each_cat_out eq "F";
+		$each_cat_out = "C" if $each_cat eq "F03";
 		print $each_cat_out $line_target."\n";
 	    }
         }
@@ -75,7 +74,7 @@ close (TARGET);
 
 close (S);
 close (G);
-#close (F);
+close (F);
 close (D);
 close (C);
 close (B);
