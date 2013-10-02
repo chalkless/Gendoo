@@ -104,9 +104,9 @@ for eachtype in "${genetype[@]}"; do
     for eachcat in "${category[@]}" ; do
 	eachfile="gene.id2mesh.${taxid}.${eachtype}.${eachcat}.tab";
 	echo ${eachfile}
-	perl -F"\t" -lane 'print join("\t", $F[1], $F[2])' ${eachfile} | sort | uniq | perl -F"\t" -lane 'print $F[1]' | sort | uniq -c | sort -rn | ../lib/sort2tab.pl > ${eachfile%tab}meshfreq.tab;
-	perl -F"\t" -lane 'print join("\t", $F[0], $F[1])' ${eachfile} | sort | uniq | perl -F"\t" -lane 'print $F[0]' | sort | uniq -c | sort -rn | ../lib/sort2tab.pl > ${eachfile%tab}genefreq.tab;
-	perl -F"\t" -lane 'print join("\t", $F[0], $F[2])' ${eachfile} | sort | uniq -c | ../lib/sort2tab.pl > ${eachfile%tab}pairfreq.tab;
+	sort ${eachfile} | uniq | perl -F"\t" -lane 'print join("\t", $F[1], $F[2])' | sort | uniq | perl -F"\t" -lane 'print $F[1]' | sort | uniq -c | sort -rn | ../lib/sort2tab.pl > ${eachfile%tab}meshfreq.tab;
+	sort ${eachfile} | uniq | perl -F"\t" -lane 'print join("\t", $F[0], $F[1])' | sort | uniq | perl -F"\t" -lane 'print $F[0]' | sort | uniq -c | sort -rn | ../lib/sort2tab.pl > ${eachfile%tab}genefreq.tab;
+	sort ${eachfile} | uniq | perl -F"\t" -lane 'print join("\t", $F[0], $F[2])' | sort | uniq -c | ../lib/sort2tab.pl > ${eachfile%tab}pairfreq.tab;
 	echo -n "${eachtype}.${eachcat}	" >> ${taxid}.pmid.total.txt;
 	perl -F"\t" -lane 'print $F[2]' $eachfile | wc -l >> ${taxid}.pmid.total.txt;
     done
