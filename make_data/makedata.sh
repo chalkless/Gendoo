@@ -69,10 +69,13 @@ gunzip -c ${gene}/gene2accession.gz | egrep "^${taxid}	" > gene2accession.${taxi
 ../120_fromSubst/ext.subst2accession.pl ${mesh}/c${mesh_ver}.bin > subst2accession.tab
 ../120_fromSubst/make.refseq2gene.pl gene2accession.${taxid}.tab subst2accession.tab > refseq2gene.${taxid}.tab
 ../120_fromSubst/make.accession2gene.pl gene2refseq.${taxid}.tab subst2accession.tab > accession2gene.${taxid}.tab
-# to be continued
+# will be added manual Acc2gene data to following step
+cat refseq2gene.${taxid}.tab accession2gene.${taxid}.tab | egrep -v "\-$" > subst2gene.linked.${taxid}.tab
+../120_fromSubst/uniq.subst2gene.pl subst2gene.linked.${taxid}.tab > subst2gene.${taxid}.pair.tab
+../120_fromSubst/make.subst2pmid.pl subst2gene.${taxid}.pair.tab > gene.id2pmid.subst.${taxid}.tab
 
 ### Merge id2pmid files
-cat gene.id2pmid.ref.${taxid}.tab | perl -F"\t" -lane 'print join("\t", $F[0], $F[1])' | egrep -v "\-" | sort | uniq > gene.id2pmid.all.${taxid}.tab
+cat gene.id2pmid.ref.${taxid}.tab gene.id2pmid.subst.${taxid}.tab | perl -F"\t" -lane 'print join("\t", $F[0], $F[1])' | egrep -v "\-" | sort | uniq > gene.id2pmid.all.${taxid}.tab
 
 ## Change style
 ../310_pmid2mesh/format.pair2each.pl gene.id2pmid.all.${taxid}.tab > gene.id2pmid.pair.${taxid}.tab

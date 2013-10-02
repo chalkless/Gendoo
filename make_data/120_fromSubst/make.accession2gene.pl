@@ -14,7 +14,7 @@ while (defined ($line_acc2gene = <ACC>)) {
     $line_acc2gene =~ s/[\r\n]//g;
 
     @ele_acc2gene = split(/\t/, $line_acc2gene);
-    $geneid_id = $ele_acc2gene[1];
+    $geneid_in = $ele_acc2gene[1];
     $acc_in = $ele_acc2gene[3];
     $acc_in =~ s/\.\d+$//g;     # omit version
 

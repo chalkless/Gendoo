@@ -14,7 +14,7 @@ while (defined ($line_ref2gene = <REF>)) {
     $line_ref2gene =~ s/[\r\n]//g;
 
     @ele_ref2gene = split(/\t/, $line_ref2gene);
-    $geneid_id = $ele_ref2gene[1];
+    $geneid_in = $ele_ref2gene[1];
     $ref_in = $ele_ref2gene[3];
     $ref_in =~ s/\.\d+$//g;     # omit version
 
