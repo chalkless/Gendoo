@@ -91,6 +91,7 @@ while (defined ($line_pair = <PAIR>)) {
     my $c = $freq_mesh - $freq_pair;
     my $d = $total - $a - $b - $c;
 
+    print STDERR $line_pair."\t" if $debug == 2;
     print STDERR "[abcd]\t".join("\t", $a, $b, $c, $d)."\n" if $debug == 2;
 
     $ig = getig($a, $b, $c, $d);
