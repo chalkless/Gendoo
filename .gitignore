@@ -1,6 +1,10 @@
 # Output files
 out/*
 
+# old files
+bak/*
+
+
 # Emacs/vi temporary files
 *~
 *.swp
