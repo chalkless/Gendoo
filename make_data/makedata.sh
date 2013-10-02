@@ -119,6 +119,6 @@ for nm in gene.id2mesh.${taxid}.*.?.pairfreq.tab; do
     tgt=$(echo $nm | sed -e "s/id2mesh/score/; s/pairfreq.//; s/tab/pre.tab/");
     sort -k 2gr ${nm%pairfreq.tab}score.pre.tab > $tgt;
 
-    ../430_MeSHterm2id/mesh.name2id.pl $tgt mesh.term2tree.${mesh_ver}.tab;
+    ../430_MeSHterm2id/mesh.term2id.pl $tgt mesh.term2tree.${mesh_ver}.tab > ${tgt%pre.tab}tab;
 done
 
