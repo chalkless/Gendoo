@@ -71,7 +71,8 @@ gunzip -c ${gene}/gene2accession.gz | egrep "^${taxid}	" > gene2accession.${taxi
 ../120_fromSubst/make.accession2gene.pl gene2refseq.${taxid}.tab subst2accession.tab > accession2gene.${taxid}.tab
 # will be added manual Acc2gene data to following step
 cat refseq2gene.${taxid}.tab accession2gene.${taxid}.tab | egrep -v "\-$" > subst2gene.linked.${taxid}.tab
-../120_fromSubst/uniq.subst2gene.pl subst2gene.linked.${taxid}.tab > subst2gene.${taxid}.pair.tab
+../120_fromSubst/uniq.subst2gene.pl subst2gene.linked.${taxid}.tab > subst2gene.${taxid}.pair.tab 2> subst2gene.${taxid}.pair.err
+cat subst2gene.${taxid}.pair.err
 ../120_fromSubst/make.subst2pmid.pl subst2gene.${taxid}.pair.tab > gene.id2pmid.subst.${taxid}.tab
 
 ### Merge id2pmid files

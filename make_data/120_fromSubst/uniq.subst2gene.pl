@@ -15,7 +15,7 @@ while (defined ($line_in = <NOT>)) {
     my ($substid, $term, $refseq, $geneid) = split(/\t/, $line_in);
     if ($gene2line{$geneid} ne "") {
         $gene2line{$geneid} = "NG";
-	print STDERR join("\t", "Not Uniq", $term, $geneid, $gene2line{$geneid})."\n";
+	print STDERR join("\t", "Not Uniq Gene", $term, $geneid, $gene2line{$geneid})."\n";
     }
     else {
         $gene2line{$geneid} = $line_in;
@@ -32,7 +32,7 @@ foreach $line_4uniq (@data_uniq_pre) {
 
     if ($subst2line{$substid} ne "") {
         $subst2line{$substid} = "NG";
-	print STDERR join("\t", "Not Uniq", $term, $substid, $subst2line{$substid})."\n";
+	print STDERR join("\t", "Not Uniq Subst", $term, $substid, $subst2line{$substid})."\n";
     }
     else {
         $subst2line{$substid} = $line_4uniq;
