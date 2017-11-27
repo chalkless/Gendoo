@@ -48,8 +48,8 @@ NO  |  NO = RefSeq NM_198836
 
   - gene2refseqの中身より
 
-\#tax_id|GeneID|status|RNA_nucleotide_accession.version|RNA_nucleotide_gi|protein_accession.version|protein_gi|genomic_nucleotide_accession.version|genomic_nucleotide_gi|start_position_on_the_genomic_accession|end_position_on_the_genomic_accession|orientation|assembly|mature_peptide_accession.version|mature_peptide_gi|Symbol
---|--|--|--|--|--|--|--|--|--|--|--|--|--|--
-9606|31|REVIEWED|NM_198836.2|631790826|NP_942133.1|38679967|NC_000017.11|568815581|37084991|37406821|-|Reference GRCh38.p7 Primary Assembly|-|-|ACACA
-9606|31|REVIEWED|NM_198836.2|631790826|NP_942133.1|38679967|NC_018928.2|528476558|35476554|35798373|-|Alternate CHM1_1.1|-|-|ACACA
-9606|31|REVIEWED|NM_198836.2|631790826|NP_942133.1|38679967|NT_187614.1|568815392|1320991|1645966|-|Reference GRCh38.p7 ALT_REF_LOCI_1|-|-|ACACA
+\#tax_id|GeneID|status|RNA_nucleotide_accession.version|...||Symbol
+--|--|--|--|--|--
+9606|31|REVIEWED|NM_198836.2|...|ACACA
+9606|31|REVIEWED|NM_198836.2|...|ACACA
+9606|31|REVIEWED|NM_198836.2|...|ACACA
