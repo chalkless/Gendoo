@@ -49,10 +49,10 @@ UI  |  UI = C000588423
 
   - gene2refseqの中身より
 
-\#tax_id|GeneID|status|RNA_nucleotide_accession.version|...||Symbol
---|---|--|---|---|--
-9606|31|REVIEWED|NM_198836.2|...|ACACA
-9606|31|REVIEWED|NM_198836.2|...|ACACA
-9606|31|REVIEWED|NM_198836.2|...|ACACA
+\#tax_id  | GeneID  | status  | RNA_nucleotide_accession.version  | ...  | Symbol
+--|---|---|---|---|--
+9606  | 31  | REVIEWED  | NM_198836  | ...  | ACACA
+9606  | 31  | REVIEWED  | NM_198836  | ...  | ACACA
+9606  | 31  | REVIEWED  | NM_198836  | ...  | ACACA
 
   - まとめ：ACACA protein, human → NM_198836 → 31
