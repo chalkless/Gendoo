@@ -45,6 +45,7 @@ NM  |  NM = ACACA protein, human
   |  ...
 NO  |  NO = RefSeq NM_198836
   |  ...
+UI  |  UI = C000588423
 
   - gene2refseqの中身より
 
@@ -53,3 +54,5 @@ NO  |  NO = RefSeq NM_198836
 9606|31|REVIEWED|NM_198836.2|...|ACACA
 9606|31|REVIEWED|NM_198836.2|...|ACACA
 9606|31|REVIEWED|NM_198836.2|...|ACACA
+
+  - まとめ：ACACA protein, human → NM_198836 → 31
