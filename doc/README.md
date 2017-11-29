@@ -55,4 +55,34 @@ UI  |  UI = C000588423
 9606  | 31  | REVIEWED  | NM_198836  | ...  | ACACA
 9606  | 31  | REVIEWED  | NM_198836  | ...  | ACACA
 
-  - まとめ：ACACA protein, human → NM_198836 → 31
+  - まとめ：ACACA protein, human → NM_198836 → Gene ID: 31
+  - 参考：どのくらいの対応がつくのか（あくまで参考。数字は数え方によって微妙に変わる）
+
+`$ grep "^NM = " c2018.bin | grep "\S, human$" | wc -l`
+
+生物種  |  数
+--|--
+human  |  14342
+mouse  |  10212
+rat  |  5042
+
+`$ grep "^NM = " c2018.bin | perl -lane 'if ($_ =~ /\S, (.*)/){ print $1}' | sort | uniq -c | sort -rn | head`
+
+生物種  |  数
+--|--
+human  |  14306
+mouse  |  10196
+rat  |  5031
+Arabidopsis  |  4987
+S cerevisiae  |  3531
+Drosophila  |  3224
+E coli  |  2118
+C elegans  |  2056
+zebrafish  |  2018
+Xenopus  |  1412
+
+  - RefSeq に対応づくのは27239件
+    - 普通は NO = RefSeq NM_028833 な記述
+    - NO = a calcium-binding protein kinase; RefSeq NM_118496 という場合もある
+
+`$ grep "^NO = " c2018.bin | grep RefSeq| wc -l`
