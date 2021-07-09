@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+ <link rel="stylesheet" type="text/css" href="../gendoo.css">
+
+ <style type="text/css">
+  <!--
+   .genename {
+       width: 18px;
+   }
+  -->  
+ </style>
+
+ <title>Gendoo - Relevant features</title>
+</head>
+<body>
+<h1><a href="../"><img src="../images/gendoo.logo-s.png" width=222 height=51 border=0 alt="Gendoo"></a></h1>
+
+<h2>Genes &#8594; Relevant diseases, drugs, ...</h2>
+
+<h3>Query gene list</h3>
+<table border>
+ [% FOREACH p = query %]
+ <tr style="text-align: left;">
+  <th>[% p.geneid %]</th>
+  <th>[% p.symbol %]</th>
+  <th>[% p.desc   %]</th>
+  <th>
+   <a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=gene&Cmd=DetailsSearch&Term=[% p.geneid %]" title="Entrez Gene"><img src="../images/gd.gene.png" width=32 height=17 border=0 alt="Entrez Gene"></a>
+   <a href="http://biosciencedbc.jp/dbsearch/?phrase=[% p.symbol %]" title="lifesciencedb.jp"><img src="../images/gd.lsdb.png" width=32 height=17 border=0 alt="lifesciencedb.jp"></a>
+  </th>
+ </tr>
+ [% END %]
+</table>
+
+<br><br>
+
+[% link %]
+
+<hr>
+
+<form method="GET" action="gendoo.cgi">
+<input name="taxonomy" type="hidden" value="[% taxonomy %]">
+
+
+[% FOREACH q = rslt %]
+<h3><a name="[% q.link %]">[% q.category %]</a></h3>
+
+<p>
+&#8594; <a href="gendoo.cgi?[% q.ids4tree %]&amp;taxonomy=[% q.taxonomy %]&amp;category=[% q.category %]&amp;view=tree">Tree View</a></p>
+</p>
+
+<table border>
+ <tr>
+  <th><br></th>
+  <th>MeSH Term</th>
+  <th>Japanese</th>
+  <th>Link</th>
+  [% FOREACH q.rhead = rhead %]
+  <th class="genename">[% rhead.genename %]</th>
+  [% END %]
+ </tr>
+
+ [% FOREACH q.rslt = rbody %]
+ <tr>
+  <td>
+   <input name="meshid" type="checkbox" value="[% rbody.meshid %]">
+  </td><td>
+   <a href="gendoo.cgi?meshid=[% rbody.meshid %]&taxonomy=[% rbody.taxonomy %]">[% rbody.mesh %]</a>
+  </td><td>
+   [% rbody.ja %]
+  </td><td>
+   <a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=mesh&Cmd=DetailsSearch&Term=%22[% rbody.mesh %]%22%5BMeSH+Terms%5D" title="MeSH (NCBI)"><img src="../images/gd.mesh.png" width=32 height=17 border=0 alt="MeSH"></a>
+   <a href="http://biosciencedbc.jp/dbsearch/?phrase=[% rbody.mesh %] | [% rbody.ja %]" title="lifesciencedb.jp"><img src="../images/gd.lsdb.png" width=32 height=17 border=0 alt="lifesciencedb.jp"></a>
+  </td>
+   [% FOREACH rbody.score = score %]
+  <td class="[% score.bgcolor %]" title="p-value=[% score.pvalue %]"><br></td>
+ </tr>
+ [% END %]
+</table>
+
+<input name="submit" type="submit" value="Keywords -> Gene, Disease">
+<input name="reset"  type="reset"  value="Reset">
+
+<br>
+<hr>
+
+[% END %]
+
+</form>
+
+<div class="footer">
+ <p style="credit">
+  <a href="http://dbcls.rois.ac.jp/">Database Center for Life Science</a><br>
+  <a href="http://lifesciencedb.jp/">lifesciencedb.jp</a>
+ </p>
+</div>
+
+
+</body>
+</html>

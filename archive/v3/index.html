@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="ja">
+<head>
+ <title>Gendoo - Gene, Disease Features Ontology-based Overview System</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+ <link rel="stylesheet" type="text/css" href="gendoo.css">
+
+ <style type="text/css">
+  <!--
+   body {
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+      line-height: 120%;
+      font-family: Helvetica, Arial, Tahoma, sans-serif;
+   }
+
+   h1 {
+      margin: 10px auto;
+      font-size: 300%;
+      font-weight: bold;
+   }
+
+   .body {
+      width: 720px;
+      margin: auto auto;
+      padding: 10px 0px;
+      border:  0px 0px;
+      background-color: white;
+   }
+
+   .body2 {
+      padding: 10px 5px;
+   }
+
+   .header {
+      margin: 0px auto;
+      padding: 0px 0px;
+   }
+
+   .titleArea {
+      background-color: rgb(0, 40, 30);
+      height: 200px;
+   }
+
+   .title {
+      padding: 20px 25px;
+      color: white;
+      font-weight: bold;
+      /* vertical-align: bottom; */
+      font-family: Century Gothic, Arial, Helvetica, sans-serif;
+   }
+  -->
+ </style>
+ 
+</head>
+
+<body>
+
+<div class="body">
+
+<div class="header">
+<h1>
+ <img src="images/gendoo.logo-s.png" width=222 height=51 alt="Gendoo">
+</h1>
+</div>
+<div class="titleArea">
+
+<div class="title">
+<br><br><br><br><br><br>
+<span style="font-size: 250%;">Gendoo</span><br><br>
+Gene, Disease Features Ontology-based Overview System
+</div>
+
+<!-- <hr style="border-color: orange; border-width: 3px; border-style: solid;"> -->
+
+</div>
+
+<div class="body2">
+
+<p style="text-align: right;">Ver. 2.206 ('12-04-06)</p>
+
+<p>
+<span style="font-weight: bold;">Gendoo</span>
+<!--
+(<span style="text-decoration: underline;">gen</span>e,
+<span style="text-decoration: underline;">d</span>isease features
+<span style="text-decoration: underline;">o</span>ntology-based
+<span style="text-decoration: underline;">o</span>verview system)
+-->
+provides keywords
+including diseases, drugs and biological phenomena related to genes and diseases of interests.
+</p>
+
+<br><br>
+
+<div class="search">
+
+<h2>Gene &#8594; ...</h2>
+
+<form method="GET" action="cgi-bin/gendoo.cgi">
+
+<p>
+Gene &#8594; Candidate &#8594; Related diseases, drugs, ...
+</p>
+
+ Gene ID(s)/Gene Names:<br>
+            <textarea name="genename" rows="10" cols="30"></textarea><br><br>
+<!-- Gene Name: <input name="genename" type="text" size="50"><br><br> -->
+ 
+ Species:
+ <select name="taxonomy">
+  <option value="human" selected>human</option>
+  <option value="mouse">mouse</option>
+  <option value="rat">rat</option>
+  <option value="silkworm">silkworm</option>
+  <option value="arabi">Arabidopsis</option>
+  <option value="synecho">Synechocystis</option>
+  <option value="anabaena">Anabaena</option>
+  <option value="meso">Mesorhizobium</option>
+  <option value="miyako">miyakogusa</option>
+<!--  <option value="arabidopsis">Arabidopsis</option> -->
+ </select>
+
+ <br><br>
+
+ <input name="submit" type="submit" value="Search">
+ <input name="reset" type="reset" value="Reset">
+
+
+
+</form>
+
+<br><br>
+
+<h2>Disease (OMIM) &#8594; ...</h2>
+
+<form  method="GET" action="cgi-bin/gendoo.cgi">
+
+<p>
+Disease (OMIM) &#8594; Candidate &#8594; Related drugs, tissues, biological phenomena (MeSH), ...
+</p>
+
+ OMIM ID(s)/Disease Names (OMIM title):<br>
+              <textarea name="omimid" rows="10" cols="30"></textarea><br><br>
+<!-- Disease name (OMIM title) : <input name="omim" type="text" size="50">
+
+<br><br>
+-->
+
+ <input name="submit" type="submit" value="Search">
+ <input name="reset" type="reset" value="Reset">
+
+<p>
+- <a href="v1/gendoo.omim.html">Old version</a> is also available.
+</p>
+
+</form>
+
+<br><br>
+
+<h2>Keywords (MeSH) &#8594; ...</h2>
+
+<form  method="GET" action="cgi-bin/gendoo.cgi">
+
+<p>
+MeSH (keywords of diseases, drugs, and so on)
+ &#8594; Candidate &#8594; Related genes, diseases (OMIM)
+</p>
+
+ Keyword (MeSH term): <input name="mesh" type="text" size="50">
+
+ <br><br>
+
+ Species:
+ <select name="taxonomy">
+  <option value="human" selected>human</option>
+  <option value="mouse">mouse</option>
+  <option value="rat">rat</option>
+  <option value="arabi">Arabidopsis</option>
+  <option value="synecho">Synechocystis</option>
+  <option value="anabaena">Anabaena</option>
+  <option value="meso">Mesorhizobium</option>
+  <option value="miyako">miyakogusa</option>
+ </select>
+
+<br><br>
+
+ <input name="submit" type="submit" value="Search">
+ <input name="reset" type="reset" value="Reset">
+</form>
+
+</div>
+
+<br><br>
+
+<div class="help">
+
+<hr>
+<h2>Help</h2>
+<ul>
+ <li> <a href="help/help-ja.html">Japanese version</a>
+ <li> <a href="help/help-en.html">English version</a>
+</ul>
+
+</div>
+
+<hr>
+
+<div class="example">
+
+<h2>Examples</h2>
+<ul>
+ <li> <a href="cgi-bin/gendoo.cgi?geneid=351&taxonomy=human">Example 1</a>:
+ Diseases and drugs related to <span style="font-style: italic;">APP</span> (amyloid precursor protein) [Gene ID: 351]
+ <li> <a href="cgi-bin/gendoo.cgi?taxonomy=human&omimid=222100&omimid=125853">Example 2</a>: Difference and similarity between type 1 and type 2 diabetes
+ [OMIM ID: 222100, 125853]
+<!-- <li> <a href="">Example 2</a>: Genes and diseases (OMIM entries) related to ... (MeSH term) -->
+</ul>
+</div>
+<hr>
+
+<div class="news">
+
+<h2>News, Announcements, Discussion, ...</h2>
+<ul>
+ <li> <a href="/reports/">Gendoo Reports</a>: The blog of Gendoo
+ <li> Ver. 2.206  ('12-04-06): The 2012 version of allelic and non-allelic heterogeneity data are available.
+ <li> Ver. 2.205  ('11-01-26): The 2011 version of allelic and non-allelic heterogeneity data are available.
+ <li> Ver. 2.204  ('10-03-09): Japanese disease terms become acceptable.
+ <li> Ver. 2.203  ('10-02-26): The 2010 version of allelic and non-allelic heterogeneity data are available.
+ <li> Ver. 2.202  ('10-02-08): "Check All" button is added to candidate genes/diseases lists.
+ <li> Ver. 2.201  ('09-09-17): Japanese translations of MeSH terms are added to MeSH tree.
+</ul>
+
+</div>
+
+<hr>
+
+<div class="download">
+
+<h2>Association data</h2>
+<ul>
+ <li> score.[gene|omim].[<span style="font-style: italic;">type</span>].[<span style="font-style: italic;">category</span>].tab
+ <ul>
+  <li> *.A.tab: Anatomy
+  <li> *.B.tab: Organisms 
+  <li> *.C.tab: Diseases
+  <li> *.D.tab: Drugs and chemicals
+  <li> *.G.tab: Biological phenomena
+  <li> *.S.tab: Substance Names
+ </ul>
+<p>
+Association files are tab-separated text data
+containing Gene/OMIM ID, score (information gain), <span style="font-style: italic">p</span>-value and MeSH ID.
+</p>
+ <li> <a href="data/id2name.human.tab">Gene names and aliases</a> (2009/1/8 ver.)
+ <li> <a href="data/omim.name.tab">Disease names and aliases</a> (2009/1/8 ver.)
+ <li> <a href="data/mesh.term2tree.tab">MeSH: IDs, terms and tree IDs</a> (2009 ver.)
+ <li> <a href="data/subst.term2table.tab">Substance Names: IDs and terms</a> (2008 ver.)
+ <li> <a href="data/">All file list</a>
+</ul>
+
+</div>
+
+<hr>
+
+<div class="addition">
+
+<h2>Further data</h2>
+<ul>
+ <li> <a href="resource/allelic.html">Allelic heterogeneity</a>: The
+      list of genes and their related diseases
+      (2011-1-8) --- Archive:
+      <a href="resource/allelic.08.html">2008</a>
+      <a href="resource/allelic.09.html">2009</a>
+      <a href="resource/allelic.10.html">2010</a>
+      <a href="resource/allelic.11.html">2011</a>
+ <li> <a href="resource/non-allelic.html">Non-allelic heterogeneity</a>:
+      The list of diseases and their related genes
+      (2011-1-8) --- Archive: 
+      <a href="resource/non-allelic.08.html">2008</a>
+      <a href="resource/non-allelic.09.html">2009</a>
+      <a href="resource/non-allelic.10.html">2010</a>
+      <a href="resource/non-allelic.11.html">2011</a>
+
+  <br><br>
+
+ <li>MeSH tree
+  <ul>
+   <li> <a href="resource/meshtree.a.html">Anatomy</a>
+        (+<a href="resource/meshtree.ja.a.html">日本語</a>) 
+   <li> <a href="resource/meshtree.b.html">Organisms</a>
+        (+<a href="resource/meshtree.ja.b.html">日本語</a>) 
+   <li> <a href="resource/meshtree.c.html">Diseases</a>
+        (+<a href="resource/meshtree.ja.c.html">日本語</a>) 
+   <li> <a href="resource/meshtree.d.html">Chemicals and Drugs</a>
+        (+<a href="resource/meshtree.ja.d.html">日本語</a>) 
+   <li> <a href="resource/meshtree.g.html">Biological Sciences</a>
+        (+<a href="resource/meshtree.ja.g.html">日本語</a>) 
+  </ul>
+</ul>
+
+</div>
+<hr>
+
+<div class="ref">
+
+<h2>References</h2>
+
+<p>
+Nakazato, T., Takinaka, T., Mizuguchi, H., Matsuda, H., Bono, H., and Asogawa, M.,<br>
+BioCompass: A novel functional inference tool that utilizes MeSH hierarchy to analyze groups of genes,<br>
+<span style="font-style: italic;">In Silico Biology</span>, 
+<span style="font-weight: bold;">8</span>(1): 53-61, 2008.
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/18430990">[PubMed]</a>
+<a href="http://www.bioinfo.de/isb/2007/08/0006/">[Full Text]</a> 
+</p>
+<p>
+Nakazato, T., Bono, H., Matsuda, H., and Takagi, T.,<br>
+Gendoo: Functional profiling of gene and disease features using MeSH vocabulary,<br>
+<span style="font-style: italic;">Nucleic Acids Research</span>,
+<span style="font-weight: bold;">37</span>(Suppl. 2) (Web Server Issue):W166-W169
+2009.
+<a href="http://www.ncbi.nlm.nih.gov/pubmed/19498079">[PubMed]</a>
+<a href="http://nar.oxfordjournals.org/cgi/content/full/37/suppl_2/W166">[Full Text]</a>
+</p>
+</div>
+
+<hr>
+
+<div class="credit">
+
+<p>
+<a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/2.1/jp/88x31.png" /></a><br />&#12371;&#12398;&#20316;&#21697;&#12399;&#12289;<a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/">&#12463;&#12522;&#12456;&#12452;&#12486;&#12451;&#12502;&#12539;&#12467;&#12514;&#12531;&#12474;&#12539;&#12521;&#12452;&#12475;&#12531;&#12473;</a>&#12398;&#19979;&#12391;&#12521;&#12452;&#12475;&#12531;&#12473;&#12373;&#12428;&#12390;&#12356;&#12414;&#12377;&#12290;<br />
+This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/deed.en">Creative Commons Attribution 2.1 Japan License</a>.
+</p>
+
+
+<p style="text-align: right;">
+ Developed by Takeru Nakazato &lt; nakazato at dbcls rois ac jp &gt;
+</p>
+
+<p style="text-align: right;">
+ <a href="http://dbcls.rois.ac.jp/">Database Center for Life Science</a><br>
+ <a href="http://lifesciencedb.jp/">lifesciencedb.jp</a>
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
