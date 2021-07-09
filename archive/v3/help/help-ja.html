@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="ja">
+<head>
+ 
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+
+ <style type="text/css">
+  <!--
+  body {
+        background-color: lemonchiffon;
+     }
+
+  a {
+        text-decoration: none;
+     }
+
+  .gendoo {
+        text-decoration: underline;
+     }
+
+  .navi {
+        text-align: right;
+     }
+  -->
+ </style>
+
+ <title>Gendoo - ヘルプ</title>
+</head>
+<body>
+<h1><a href="../">Gendoo</a> - ヘルプ</h1>
+
+<h2>概要</h2>
+<p>
+<span style="font-weight: bold;">Gendoo</span>
+(<span class="gendoo">Gen</span>e,
+ <span class="gendoo">d</span>esease features
+ <span class="gendoo">o</span>ntology-based
+ <span class="gendoo">o</span>verview system) は、
+遺伝子や疾患について、関連する疾患や薬剤、生命現象、臓器などの情報を
+キーワードで表示するシステムです。
+</p><p>
+Gendooでは、キーワードとして、MeSHを用いています。
+（Gene Ontologyの語も近日対応予定です）
+</p><p>
+入力としては以下を受け付けます。
+</p>
+<ul>
+ <li> Gene ID
+ <li> 遺伝子名
+ <li> OMIM ID
+ <li> 疾患名（OMIMのタイトル）
+ <li> キーワード（MeSH terms）：疾患、薬剤、生命現象、臓器
+</ul>
+<p>
+すると、関連する語が表示されます。
+</p><p>
+Gendooは、「High-scoring list（ランキングリスト）」と
+「Hierarchical-tree view（階層構造表示）」の
+2つの結果画面があります。初期画面は「High-scoring list」です。
+</p>
+<img src="list.png" alt="High-scoring list" width="400" height="377"
+     style="align: left; border: 0px;">
+<img src="tree.png" alt="hierarchical-tree view" width="400" height="377"
+     style="align: right; border: 0px;">
+<p>
+遺伝子名や疾患名を入力とした場合、目的の遺伝子や疾患がどのエントリなのか
+選択する画面が出ます。目的のものを選択することで、関連する語が
+表示されます。
+</p>
+<img src="candidate.png" alt="候補リスト" width="400" height="377" style="border: 0px;">
+<p>
+キーワードを入力とした場合は、関連する遺伝子と疾患のリストが出ます。
+この場合、Hierarchical-tree viewはありません。
+</p><p>
+まとめると以下のようになります。
+</p>
+<img src="gendoo-flow.png" alt="search flow"
+     width="406" height="375" style="border: 0px;">
+
+<h2>Gendooの使い方</h2>
+
+<h3>Gene/OMIM ID → 関連疾患、薬剤、生命現象、臓器</h3>
+<p>
+Gene ID ならGene ID(s)欄に、OMIM IDならOMIM ID(s)欄にIDを入力します。
+</p>
+<img src="from_id.png" alt="ID欄にIDを入力する" width="330" height="241" style="border: 0px;">
+
+<p>
+複数のIDを入力するときは、ID欄に1行1 IDで入力してください。
+</p>
+<img src="from_ids.png" alt="複数のIDを入力するときは1行1ID"
+     width="328" height="239" style="border: 0px;">
+
+<p>
+ID を入力したら、Searchボタンをクリックします。
+</p>
+<img src="search.png" alt="IDを入力したら Search ボタンをクリック"
+     width="166" height="166" style="border: 0px;">
+<p>
+結果が表示されます。（high-scoring list [ランキングリスト]）
+</p>
+<img src="result-ja.png" alt="検索結果" width="502" height="869" style="border: 0px;">
+
+<p>
+関連度は、<span style="font-style: italic;">p</span>-valueにより
+背景色を変えて示しています。
+複数のスコアを勘案するときのために、情報利得 (information gain) でも
+スコアリングしていますが、参考程度でよいかと思います。
+（蛇足ですが、情報利得は0〜1の間の数値をとり、大きい方が有意です）
+</p>
+<img src="pvalue.png" alt="p-valueによる背景色チャート"
+     width="95" height="306" style="align: right; border: 0px;">
+<p>
+関連度のセルにマウスオーバーすることにより、情報利得と
+<span style="font-style: italic;">p</span>-valueの値が確認できます。
+</p>
+<img src="score.png" alt="情報利得とp-valueの値"
+     width="638" height="168" style="border: 0px;">
+
+
+<p>
+MeSH は階層構造をとっています。”Tree view” をクリックすることにより
+階層構造表示（hierarchical-tree view）で結果を表示します。
+</p>
+<img src="to_tree.png" alt="Tree viewをクリック"
+     width="512" height="301" style="border: 0px;">
+<p>
+階層構造表示で結果が表示されます。
+</p>
+<img src="result_tree-ja.png" alt="階層構造表示"
+     width="525" height="870" style="border: 0px;">
+
+<p>
+High-scoring List をクリックすることにより、
+hish-scoring list（ランキングリスト）表示に戻ります。
+</p>
+<img src="to_list.png" alt="High-scoring Listをクリック"
+     width="317" height="227" style="border: 0px;">
+
+
+<hr>
+<div class="navi">
+ <a href="http://lifesciencedb.jp">lifesciencedb.jp</a> &gt;
+ <a href="../">Gendoo</a> &gt; ヘルプ
+</div>
+
+</body>
+</html>

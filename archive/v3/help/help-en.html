@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en-US">
+<head>
+ 
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+
+ <style type="text/css">
+  <!--
+  body {
+        background-color: lemonchiffon;
+     }
+
+  p, li {
+        line-height: 150%;
+     }
+
+  a {
+        text-decoration: none;
+     }
+
+  .gendoo {
+        text-decoration: underline;
+     }
+
+  .navi {
+        text-align: right;
+     }
+  -->
+ </style>
+
+ <title>Gendoo - Help</title>
+</head>
+<body>
+<h1><a href="../">Gendoo</a> - Help</h1>
+
+<h2>Overview</h2>
+<p>
+<span style="font-weight: bold;">Gendoo</span>
+(<span class="gendoo">Gen</span>e,
+ <span class="gendoo">d</span>isease features
+ <span class="gendoo">o</span>ntology-based
+ <span class="gendoo">o</span>verview system) provides
+the keywords of disease, drug, biological phenomena, and anatomy
+associated with genes and diseases of your interest.
+</p><p>
+Gendoo utilizes a controlled vocabulary
+MeSH (Medical Subject Headings) as keywords.
+We are going to use Gene Ontology terms in addition to MeSH.
+</p><p>
+Gendoo accepts following items as input queries:
+</p>
+<ul>
+ <li> Entrez Gene ID
+ <li> gene name
+ <li> OMIM ID
+ <li> disease name (OMIM title)
+ <li> keywords (MeSH terms): diseases, drugs, biological phenomena, and anatomy
+</ul>
+
+<p>
+Gendoo currently uses descriptions of "title" and "alternative titles; symbols"
+sections of OMIM for disease name, so that not all synonyms are included in the
+dictionary such as "type 2 diabetes".
+We will increase the synonyms by involving canonical names and synonyms (entry
+terms) of corresponding MeSH terms, and extracting disease names from
+MEDLINE and OMIM resources with text mining approach.
+</p>
+
+<p>
+Gendoo generates two views as result: high-scoring lists and
+hierarchical-tree view.
+</p>
+<img src="list.png" alt="High-scoring list" width="400" height="377"
+     style="align: left; border: 0px;">
+<img src="tree.png" alt="hierarchical-tree view" width="400" height="377"
+     style="align: right; border: 0px;">
+<p>
+When input query is gene or disease name, candidate gene/OMIM list will
+be generated because the same name is referred to by several diseases,
+genes, and drugs.
+Please choose the items of your interests.
+</p>
+<img src="candidate.png" alt="candidate gene/disease list" width="400" height="377" style="border: 0px;">
+<p>
+When input query is keywords, high-scoring lists of associated genes
+and diseases are generated.
+</p><p>
+The summary of searching process is as follows:
+</p>
+<img src="gendoo-flow.png" alt="search flow"
+     width="406" height="375" style="border: 0px;">
+
+<h2>How to use Gendoo?</h2>
+
+<h3>Gene/OMIM IDs -> Associated diseases, drugs, biological phenomena, and anatomies</h3>
+<p>
+Please input Entrez Gene/OMIM ID to ID form of each category.
+</p>
+<img src="from_id.png" alt="Input ID to ID form"
+     width="330" height="241" style="border: 0px;">
+
+<p>
+When you want to input multiple IDs or names, please input 1 ID/name per line to ID form.
+</p>
+<img src="from_ids.png" alt="Input 1 ID per line"
+     width="328" height="239" style="border: 0px;">
+
+<p>
+Please click "Search" after inputting IDs or names.
+</p>
+<img src="search.png" alt="clisk Search button"
+     width="166" height="166" style="border: 0px;">
+<p>
+High-scoring lists will be generated.
+</p>
+<img src="result-en.png" alt="high-scoring lists"
+     width="502" height="869" style="border: 0px;">
+
+<p>
+The significance of each association is illustrated by
+assigning background color according to their
+<span style="font-style: italic;">p</span>-value.
+The scores are derived from frequency of documents co-occurring descriptions
+of genes/diseases and assigned MeSH keywords.
+</p>
+
+<p>
+<span style="font-weight: bold;">Note:</span>
+"Sum score" (Information Gain) means the significance of
+association between "group" of genes or diseases and keywords.
+Gendoo shows this score only as a reference because the sum score is calculated
+briefly.
+Gendoo uses information gain as score for calculation of
+"sum score". The range of information gain is 0 to 1. The higher score means
+the larger significance of association.
+The score for group of diseases or genes should be derived from articles
+referred to any disease or gene in the group.
+However, the accurate calculation requires much time and machine power.
+Gendoo presently calculate
+sum scores by briefly summing up the information gain of each association
+instead of accurate calculation.
+To sum up <span style="font-style: italic;">p</span>-values
+seem to be mathematically inconsistent as scores of genes and diseases groups.
+(We received the suggestion that sum score is confusing, so that we will delete
+the column in the next release.)
+</p>
+
+<img src="pvalue.png" alt="Color chart of background color"
+     width="95" height="306" style="align: right; border: 0px;">
+<p>
+The values of
+<span style="font-style: italic;">p</span>-value
+and information gain
+are shown
+by putting mouse pointer on each cell.
+</p>
+<img src="score.png" alt="The values of information gain and p-value"
+     width="638" height="168" style="border: 0px;">
+
+
+<p>
+Gendoo also generates hierarchical-tree view by clicking "Tree View" link.
+</p>
+<img src="to_tree.png" alt="link for hierarchical-tree view"
+     width="512" height="301" style="border: 0px;">
+<p>
+Following figure is a sample of hierarchical-tree view.
+</p>
+<img src="result_tree-en.png" alt="hierarchical-tree view"
+     width="525" height="870" style="border: 0px;">
+<p>
+Gendoo currently assigns colors to the keywords of high-scoring list and
+hierarchical tree view in a differenct way. In high-scoring list, Gendoo
+assigns the colors to "each association" between genes or diseases and
+keywords, namely each cell of the table. On the other hand, in hierarchical
+tree view, Gendoo assigns the color according to the score of "group" of
+genes or diseases as sum score. We are modifying Gendoo programs to reduce
+the difference of colors between these views, and we will consider
+other way to assign colors to each keywords such as by their ranks.
+</p>
+
+<br>
+<p>
+To go back to high-scoring lists, click "High-scoring List" link.
+</p>
+<img src="to_list.png" alt="link for high-scoring lists"
+     width="317" height="227" style="border: 0px;">
+
+<hr>
+<div class="navi">
+ <a href="http://lifesciencedb.jp/">lifesciencedb.jp</a> &gt;
+ <a href="../">Gendoo</a> &gt; Help
+</div>
+
+</body>
+</html>

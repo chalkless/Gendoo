@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <meta http-equiv="Content-Style-Type" content="text/css">
+ <meta http-equiv="Content-Script-Type" content="text/javascript">
+
+ <link rel="stylesheet" type="text/css" href="../gendoo.tmp.css">
+ <link rel="stylesheet" type="text/css" href="../gendoo.css">
+
+ <style type="text/css">
+  <!--
+   .genename {
+       width: 18px;
+   }
+  -->  
+ </style>
+
+ <title>Gendoo - Relevant features</title>
+</head>
+<body>
+<h1><a href="../"><img src="../images/gendoo.logo-s.png" width=222 height=51 border=0 alt="Gendoo"></a></h1>
+
+<h2>Genes &#8594; Relevant diseases, drugs, ...</h2>
+
+<h3>Query gene list</h3>
+<table border>
+ [% FOREACH p = query %]
+ <tr style="text-align: left;">
+  <th>[% p.geneid %]</th>
+  <th>[% p.symbol %]</th>
+  <th>[% p.desc   %]</th>
+  <th>
+   <a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=gene&Cmd=DetailsSearch&Term=[% p.geneid %]" title="Entrez Gene"><img src="../images/gd.gene.png" width=32 height=17 border=0 alt="Entrez Gene"></a>
+   <a href="http://biosciencedbc.jp/dbsearch/?phrase=[% p.symbol %]" title="lifesciencedb.jp"><img src="../images/gd.lsdb.png" width=32 height=17 border=0 alt="lifesciencedb.jp"></a>
+  </th>
+ </tr>
+ [% END %]
+</table>
+
+<br><br>
+
+[% link %]
+
+<hr>
+
+<form method="GET" action="gendoo.cgi">
+<input name="taxonomy" type="hidden" value="[% taxonomy %]">
+
+
+[% FOREACH q = rslt %]
+<h3><a name="[% q.link %]">[% q.category %]</a></h3>
+
+<p>
+&#8594; <a href="gendoo.cgi?[% q.ids4tree %]&amp;taxonomy=[% q.taxonomy %]&amp;category=[% q.category %]&amp;view=tree">Tree View</a></p>
+</p>
+
+
+
+[% END %]
+
+
+
+
+
+<!-- </form> -->
+
+
+<!-- </body> -->
+<!-- </html> -->
