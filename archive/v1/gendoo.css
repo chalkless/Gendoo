@@ -1,0 +1,104 @@
+
+
+a   {
+    text-decoration: none;
+    }
+
+
+/* Background Level for Score  */
+
+.score01 {
+        background-color: rgb(255, 0, 127);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score02 {
+        background-color: rgb(239, 15, 127);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score03 {
+        background-color: rgb(223, 31, 127);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score04 {
+        background-color: rgb(207, 47, 127);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score05 {
+        background-color: rgb(191, 63, 127);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score06 {
+        background-color: rgb(175, 79, 127);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score07 {
+        background-color: rgb(159, 95, 127);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score08 {
+        background-color: rgb(143, 111, 127);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score09 {
+        background-color: rgb(127, 127, 127);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score10 {
+        background-color: rgb(111, 111, 111);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score11 {
+        background-color: rgb(95, 95, 95);
+	color:       rgb(0, 0, 0);
+	font-size: 60%;
+    }
+
+.score12 {
+        background-color: rgb(79, 79, 79);
+	color:       rgb(255, 255, 255);
+	font-size: 60%;
+    }
+
+.score13 {
+        background-color: rgb(63, 63, 63);
+	color:       rgb(255, 255, 255);
+	font-size: 60%;
+    }
+
+.score14 {
+        background-color: rgb(47, 47, 47);
+	color:       rgb(255, 255, 255);
+	font-size: 60%;
+    }
+
+.score15 {
+        background-color: rgb(31, 31, 31);
+	color:       rgb(255, 255, 255);
+	font-size: 60%;
+    }
+
+.score16 {
+        background-color: rgb(15, 15, 15);
+	color:       rgb(255, 255, 255);
+	font-size: 60%;
+    }

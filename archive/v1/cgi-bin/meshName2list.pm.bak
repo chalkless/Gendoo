@@ -1,0 +1,112 @@
+#!/usr/bin/perl -w
+
+# mesh.name2list.pm
+# Nakazato T.
+# '07-10-16-Tue.    Ver. 0 - name2list.pm
+# '07-10-24-Wed.    Ver. 0.1 - cp
+
+package meshName2list;
+
+use Exporter;
+@ISA=(Exporter);
+@EXPORT = qw(call);
+
+my $debug = 1;
+
+if (0) {
+$name = shift(@ARGV);
+call($name);
+exit;
+}
+
+sub call {
+    my ($name) = @_;
+
+    print "[mesh.name2list]\t".$name."\n" if ($debug == 2);
+
+
+    htmlHeader();
+    printPageTitle();
+    showQuery($name);
+    tableHeader();
+    grepName($name);
+    tableFooter();
+}
+
+sub printCGI {
+    print "Content-type: text/html\n\n";
+}
+
+
+sub htmlHeader {
+print <<HEADER;
+<html>
+<head>
+<title>Gendoo</title>
+<body>
+HEADER
+}
+
+
+sub printPageTitle {
+print <<TITLE
+<h1><a href="../gendoo.html" style="font-decoration: none;">Gendoo</a></h1>
+<h2>Candidate MeSH terms List</h2>
+TITLE
+}
+
+sub tableHeader {
+print <<THEADER;
+<!-- #<form method="GET" action="/cgi-bin/gendoo.cgi"> -->
+<table border>
+THEADER
+}
+
+sub showQuery {
+    my ($name) = @_;
+
+print <<QUERY;
+<p>Your query term:
+<span style="font-weight: bold;">$name</span>
+</p>
+QUERY
+}
+
+sub grepName {
+    my ($name) = @_;
+
+    @name_candidates = `grep -i $name data/mesh.name.tab`;
+
+    foreach $each_name_candidate (@name_candidates) {
+	my ($term, $name_other) = split(/\t/, $each_name_candidate);
+
+	$name_other =~ s/\|/<br>\n/g;
+
+	$mesh_link = $term;
+	$mesh_link =~ s/\s/+/g;
+
+print <<GENENAME;
+ <tr>
+<!-- #  <td><input name="geneid" type="radio" value="$geneid"></td> -->
+<!-- # /cgi-bin/gendoo.cgi?geneid=$geneid&name=&submit=Search -->
+  <td><a href="gendoo.cgi\?mesh=$term">$term</a></td>
+  <td><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?Db=mesh&Cmd=DetailsSearch&Term=%22$mesh_link%22%5BMeSH+Terms%5D">[NCBI]</a></td>
+  <td>$name_other</td>
+ </tr>
+GENENAME
+    }
+}
+
+sub tableFooter {
+print <<TFOOTER;
+</table>
+<!--
+#<input name="submit" type="submit" value="-> associated keyword">
+
+#</form> -->
+</body>
+</html>
+TFOOTER
+}
+
+1;
