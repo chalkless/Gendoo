@@ -1,0 +1,70 @@
+<!DOCTYPE html
+	  PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US">
+<head>
+ <title>Gendoo</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+
+<body>
+<h1>Gendoo</h1>
+
+
+<p>
+<span style="font-weight: bold;">Gendoo</span> provides relationships between gene and MeSH term (disease, drug, and so on).
+</p><p>
+<a href="../">New version</a> is available! (2008/10/6)
+</p>
+
+
+<br><br>
+
+<form method="GET" action="cgi-bin/gendoo.cgi">
+
+<p>
+gene -> MeSH: Please enter GeneID or gene name.
+</p>
+
+ Gene ID:   <input name="geneid" type="text" size="15"><br>
+ Gene Name: <input name="name" type="text" size="50"><br>
+ 
+ <br><br>
+
+<p>
+MeSH -> gene: Please enter MeSH term.
+</p>
+
+ MeSH terms: <input name="mesh_list" type="text" size="50">
+
+<br><br><br>
+
+ <select name="taxonomy">
+  <option value="human" selected>human</option>
+  <option value="mouse">mouse</option>
+  <option value="arabidopsis">Arabidopsis</option>
+ </select>
+
+<br><br>
+
+ <input name="submit" type="submit" value="Search">
+ <input name="reset" type="reset" value="Reset">
+</form>
+
+<br><br>
+
+<hr>
+<h2>Further data</h2>
+<ul>
+ <li> <a href="resource/allelic.html">Allelic heterogeneity</a>: The list of genes and their related diseases
+ <li> <a href="resource/non-allelic.html">Non-allelic heterogeneity</a>: The list of diseases and their related genes
+</ul>
+
+<hr>
+<p style="text-align: right;">Developed by Takeru Nakazato &lt; nakazato at dbcls rois ac jp &gt;</p>
+<p style="text-align: right;">
+Database Center for Life Science
+</p>
+
+</body>
+</html>
